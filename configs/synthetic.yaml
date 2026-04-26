@@ -1,0 +1,44 @@
+# Synthetic debug configuration
+# For testing the full pipeline without real datasets
+
+dataset: synthetic
+num_samples_train: 50
+num_samples_val: 10
+
+# Model
+input_dim: 64
+hidden_dim: 64
+num_relation_classes: 10
+num_entity_classes: 20
+tube_encoder_type: convolution  # 'convolution' or 'transformer'
+num_encoder_layers: 1
+num_heads: 4
+dropout: 0.1
+max_tube_length: 16
+
+# Training
+optimizer: adam
+learning_rate: 0.001
+weight_decay: 0.0
+gradient_clip_norm: 0.0
+num_epochs: 5
+batch_size: 8
+num_frames: 8
+pad_length: 16
+
+# Contrastive learning
+use_contrastive: true
+weight_relation_ce: 1.0
+weight_shuffle_contrastive: 0.5
+weight_triplet_contrastive: 0.5
+similarity_method: pooling_cosine  # faster for debug; use 'optimal_transport' for full
+alpha: 10.0
+gamma: 0.0  # 0 = apply shuffle to all tubes in debug mode
+sinkhorn_iterations: 50
+sinkhorn_tau: 0.05
+
+# Saving
+save_dir: checkpoints/synthetic
+save_every: 2
+seed: 42
+device: cpu

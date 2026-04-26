@@ -1,0 +1,43 @@
+# PSG4D Point Cloud configuration
+# Based on paper: PSG4DFormer with point cloud input
+
+dataset: psg4d
+data_root: data/psg4d/psg4d_gta
+split_name: gta
+modality: pointcloud
+
+# Model
+input_dim: 256
+hidden_dim: 256
+num_relation_classes: 43
+num_entity_classes: 35
+tube_encoder_type: convolution
+num_encoder_layers: 2
+num_heads: 4
+dropout: 0.1
+max_tube_length: 64
+
+# Training (from paper: 100 epochs for relation, 200 for seg fine-tuning)
+optimizer: adam
+learning_rate: 0.001
+weight_decay: 0.0
+gradient_clip_norm: 0.0
+num_epochs: 100
+batch_size: 32
+num_frames: 16
+pad_length: 32
+
+# Contrastive learning
+use_contrastive: true
+weight_relation_ce: 1.0
+weight_shuffle_contrastive: 1.0
+weight_triplet_contrastive: 1.0
+similarity_method: optimal_transport
+alpha: 10.0
+gamma: 9.0
+sinkhorn_iterations: 1000
+sinkhorn_tau: 0.05
+
+save_dir: checkpoints/psg4d_pointcloud
+save_every: 10
+seed: 42
