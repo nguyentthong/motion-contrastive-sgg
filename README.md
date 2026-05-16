@@ -248,9 +248,12 @@ Tests cover: vIoU computation, R@K/mR@K metrics, Sinkhorn OT distance, positive/
 
 ```bibtex
 @inproceedings{nguyen2025motion,
-  title={Motion-aware Contrastive Learning for Temporal Panoptic Scene Graph Generation},
-  author={Nguyen, Thong Thanh and Wu, Xiaobao and Bin, Yi and Nguyen, Cong-Duy and Ng, See-Kiong and Luu, Anh Tuan},
-  booktitle={AAAI},
+  title={Motion-aware contrastive learning for temporal panoptic scene graph generation},
+  author={Nguyen, Thong Thanh and Wu, Xiaobao and Bin, Yi and Nguyen, Cong-Duy T and Ng, See-Kiong and Luu, Anh Tuan},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={39},
+  number={6},
+  pages={6218--6226},
   year={2025}
 }
 ```
